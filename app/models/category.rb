@@ -20,4 +20,11 @@ class Category
     name
   end
 
+  def serialize
+    {
+      :id => id,
+      :name => name
+    }
+  end
+
 end

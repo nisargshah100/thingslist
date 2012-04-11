@@ -38,4 +38,12 @@ class City
     City.where(:source.near => location).limit(1).first 
   end
 
+  def serialize
+    {
+      :id => id,
+      :name => name,
+      :state => state.abbr
+    }
+  end
+
 end

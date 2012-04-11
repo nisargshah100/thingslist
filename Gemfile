@@ -14,6 +14,7 @@ gem 'mongoid'
 gem 'puma'
 gem 'bson_ext'
 gem 'devise'
+gem 'andand'
 
 # Geo
 gem 'mongoid_spacial'

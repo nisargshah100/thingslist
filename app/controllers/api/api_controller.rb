@@ -13,4 +13,9 @@ class Api::ApiController < ActionController::Base
       self.instance_variable_set("@#{attr.to_s}", params[attr] || value)      
     end
   end
+
+  def respond_with(items)
+    super(items.collect { |i| i.serialize() })
+  end
+
 end

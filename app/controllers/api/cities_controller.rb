@@ -1,8 +1,7 @@
 class Api::CitiesController < Api::ApiController
 
   def index
-    cities = City.only(:name)
-    respond_with(cities)
+    respond_with(City.includes(:state).all)
   end
 
   def nearby
@@ -11,8 +10,9 @@ class Api::CitiesController < Api::ApiController
 
     state = State.any_of({:name => @state}, {:abbr => @state}).first
     city = City.where(:name => @city, :state_id => state.id).first
+    cities = city.find_closest(@distance).limit(@limit)
 
-    render :json => city.find_closest(@distance).limit(@limit)
+    respond_with(cities)
   end
 
 end
