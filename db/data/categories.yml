@@ -1,0 +1,82 @@
+community:
+  - activities
+  - childcare
+  - general
+  - pets
+  - events
+  - lost + found
+
+for_sale:
+  - appliances
+  - antiques
+  - bikes
+  - books
+  - baby + kids
+  - cars + trucks
+  - cell phones
+  - clothes
+  - computer
+  - electronics
+  - free
+  - furniture
+  - household
+  - jewelry
+  - sporting
+  - tickets
+  - tools
+  - toys + games
+  - video games
+  - wanted
+  - other
+
+housing:
+  - apartments
+  - rooms + shared
+  - short term
+  - wanted
+  - vacation rentals
+  - parking
+  - office / commercial
+  - real estate for sale
+
+services:
+  - beauty + fashion
+  - computer + electronics
+  - events
+  - wedding
+  - financial + accounting
+  - lessons
+  - automotive
+  - writing + editing
+
+jobs:
+  - accounting + finance
+  - admin + office
+  - engineering
+  - biotech + science
+  - business + mgmt
+  - customer service
+  - education
+  - food
+  - medical + health
+  - general labor
+  - government
+  - human resources
+  - legal + paralegal
+  - manufacturing
+  - marketing + pr
+  - non profit
+  - real estate
+  - retail + wholesale
+  - sales + biz
+  - salon + fitness + spa
+  - security
+  - skilled labor + craft
+  - tech support
+  - software development
+  - dba + networking + qa
+  - transport
+  - film + video + tv
+  - web design 
+  - writing + editing
+  - part time
