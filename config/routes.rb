@@ -3,7 +3,18 @@ Thingslist::Application.routes.draw do
   resources :categories
 
   namespace :api do
-    resources :categories, :only => [:index]
+    resources :categories do
+      collection do
+        get 'parents'
+        get 'children'
+      end
+    end
+
+    resources :cities do
+      collection do
+        get 'nearby'
+      end
+    end
   end
 
   root :to => 'home#index'
