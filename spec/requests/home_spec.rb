@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Geo Redirection' do
+describe 'Home' do
   it 'server is up' do
     visit '/'
     page.status_code.should be 200

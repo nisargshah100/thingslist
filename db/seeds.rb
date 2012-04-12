@@ -50,9 +50,8 @@ csv.each do |row|
     cities << {
       :name => name, 
       :state_id => state, 
-      :source => {:lat => row[:lat], :lng => row[:lng]}
+      :source => [row[:lng].to_f, row[:lat].to_f]
     }
-    count += 1
   end
 end
 
@@ -63,5 +62,5 @@ City.collection.insert(cities)
 #   c.save()
 # end
 
-puts "Cities Saved (#{count})"
+puts "Cities Saved (#{City.count})"
 system "rake db:mongoid:create_indexes"

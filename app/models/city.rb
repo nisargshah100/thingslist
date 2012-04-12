@@ -31,7 +31,7 @@ class City
   end
 
   def to_s
-    "#{name}, #{state.abbr}"
+    "#{name}, #{state.abbr if state}"
   end
 
   def self.find_closest(location)
