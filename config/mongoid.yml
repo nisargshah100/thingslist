@@ -1,3 +1,6 @@
+defaults: &defaults
+  autocreate_indexes: true
+
 development:
   host: localhost
   database: thingslist_development

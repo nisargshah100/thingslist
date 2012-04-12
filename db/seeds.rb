@@ -37,19 +37,31 @@ puts "Saved States (#{count})"
 count = 0
 cities_data = File.read("#{PATH}/cities.csv")
 
+states = {}
+cities = []
+State.all.each { |s| states[s[:abbr]] = s.id }
+
 csv = CSV.parse(cities_data, :headers => true, :header_converters => :symbol)
 csv.each do |row|
   name = cleanup(row[:name])
-  state = State.where(:abbr => row[:abbr]).first
+  state = states[row[:abbr]]
 
   if name and state
-    city = City.create!(
+    cities << {
       :name => name, 
-      :state => state, 
+      :state_id => state, 
       :source => {:lat => row[:lat], :lng => row[:lng]}
-    )
+    }
     count += 1
   end
 end
 
+City.collection.insert(cities)
+
+# City.all.each do |c|
+#   c.source = { :lng => c.source[0], :lat => c.source[1] }
+#   c.save()
+# end
+
 puts "Cities Saved (#{count})"
+system "rake db:mongoid:create_indexes"

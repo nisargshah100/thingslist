@@ -14,6 +14,12 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'capybara/rspec'
+  require 'bundler'
+
+  City.all.delete
+  State.all.delete
+  Category.all.delete
+
   load "#{Rails.root}/db/seeds.rb"
 
   Capybara.register_driver :rack_test do |app|
@@ -48,5 +54,6 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  Bundler.require
   require 'fabricators'
 end

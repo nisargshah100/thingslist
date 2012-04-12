@@ -8,6 +8,6 @@ describe 'Geo Redirection' do
 
   it 'redirects to closest city' do
     visit '/'
-    page.should have_content 'washington, dc'
+    page.should have_content 'washington, DC'
   end
 end
