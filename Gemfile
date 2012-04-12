@@ -9,6 +9,18 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'ruby_gntp'
+  gem 'guard-spork'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'fabrication'
+  gem 'faker'
+  gem 'launchy'
+end
+
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'puma'
