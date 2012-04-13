@@ -1,0 +1,5 @@
+h2 = @city
+hr
+.categories
+  - @categories.each do |c|
+    = render 'category/table', :category => c

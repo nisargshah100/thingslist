@@ -11,8 +11,24 @@ class ApplicationController < ActionController::Base
   end
 
   def closest_city
-    geo = Geocoder.search(ipaddress).first
-    @city = City.find_closest([geo.longitude, geo.latitude]) if geo
+    if cached_city.blank?
+      geo = Geocoder.search(ipaddress).first
+      @city = City.find_closest([geo.longitude, geo.latitude]) if geo
+      cache_city(@city)
+    else
+      @city = City.find(@city_id)
+    end
+  end
+
+  # Used for caching the city so that subsequent requests dont
+  # repeat geospatial call
+
+  def cached_city
+    @city_id ||= cookies[:city]
+  end
+
+  def cache_city(city)
+    cookies[:city] = @city.id if city
   end
 
 end

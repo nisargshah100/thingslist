@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+//= require masonry
 //= require_tree .
+
+$(document).ready(function() {
+  $('.categories').masonry({
+     columnWidth: 50
+  });
+});

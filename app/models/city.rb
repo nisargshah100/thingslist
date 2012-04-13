@@ -2,11 +2,13 @@ class City
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Spacial::Document
+  include Mongoid::Slug
 
   belongs_to :state
   has_many :ads
 
   field :name
+  slug :to_s
 
   # source = { :lng => x, :lat => y }
   # find using [lng, lat] = [x, y]
@@ -31,7 +33,7 @@ class City
   end
 
   def to_s
-    "#{name}, #{state.abbr if state}"
+    "#{name}, #{state.abbr if state}".downcase
   end
 
   def self.find_closest(location)

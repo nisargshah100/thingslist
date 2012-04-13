@@ -1,6 +1,11 @@
 Thingslist::Application.routes.draw do
   devise_for :users
+  
   resources :categories
+  resources :city do
+  end
+
+  # Api Paths
 
   namespace :api do
     resources :categories do

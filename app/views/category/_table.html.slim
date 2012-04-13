@@ -1,0 +1,9 @@
+- slice = category.children.count / 10 + 1
+
+div
+  table.table.table-condensed.table-bordered
+    th colspan="#{slice}" = category.name
+    - category.children.each_slice(slice) do |slices|
+      tr
+        - slices.each do |c|
+          td style='width: 150px' = link_to c.name, categories_path(c)
