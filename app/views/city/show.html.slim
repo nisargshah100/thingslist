@@ -1,4 +1,10 @@
-h2 = @city
+.row
+  .span3
+    input.search-query type='text' placeholder='Search'
+  .span6.center
+    h2= @city
+  .span3.pull-right
+    a.btn.btn-info href="#{ad_new_path}" = t(:post_ad)
 hr
 .categories
   - @categories.each do |c|

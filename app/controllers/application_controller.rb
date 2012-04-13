@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :closest_city
 
+  def raise_404
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   private
 
   def ipaddress

@@ -6,4 +6,4 @@ div
     - category.children.each_slice(slice) do |slices|
       tr
         - slices.each do |c|
-          td style='width: 150px' = link_to c.name, categories_path(c)
+          td style='width: 150px' = link_to c.name, category_path(c)

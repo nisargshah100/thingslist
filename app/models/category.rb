@@ -1,12 +1,14 @@
 class Category
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   
   has_many :children, :class_name => 'Category', :inverse_of => :parent
   belongs_to :parent, :class_name => 'Category', :inverse_of => :children
   has_many :ads
 
   field :name
+  slug :to_s
 
   def self.parents()
     Category.where(:parent_id => nil)
@@ -17,7 +19,7 @@ class Category
   end
 
   def to_s
-    name
+    "#{name} #{parent.name if parent}"
   end
 
   def serialize

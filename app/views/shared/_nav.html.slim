@@ -9,8 +9,13 @@ div.navbar.navbar-fixed-top
       .nav-collapse
         ul.nav
           li.active
-            a href="#" Home
-          li
-            a href="#about" About
-          li
-            a href="#contact" Contact
+            a href="/" = t(:"nav.home")
+        ul.nav.pull-right
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              | #{@city} 
+              b.caret
+            ul.dropdown-menu
+              - @city.find_closest(30).limit(10).each do |nearby_city|
+                li= link_to nearby_city, city_path(nearby_city)
+

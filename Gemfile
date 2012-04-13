@@ -25,6 +25,7 @@ gem 'mongoid'
 gem 'mongoid_slug'
 
 gem 'jquery-rails'
+gem 'simple_form'
 gem 'puma'
 gem 'bson_ext'
 gem 'devise'
