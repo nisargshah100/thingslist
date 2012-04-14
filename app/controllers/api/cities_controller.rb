@@ -5,8 +5,8 @@ class Api::CitiesController < Api::ApiController
     defaults :limit => 10
     @limit = 10 if @limit > 10 or @limit < 1
 
-    #cities = City.where(:name => /#{@city}/).includes(:state).limit(@limit)
-    cities = City.fulltext_search(@city, { :max_results => @limit })
+    cities = City.where(:name => /#{@city}/).includes(:state).limit(@limit)
+    #cities = City.fulltext_search(@city, { :max_results => @limit })
 
     respond_with(cities)
   end
