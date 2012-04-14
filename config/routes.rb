@@ -18,6 +18,7 @@ Thingslist::Application.routes.draw do
     resources :cities do
       collection do
         get 'nearby'
+        get 'search'
       end
     end
   end

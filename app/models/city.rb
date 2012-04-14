@@ -3,6 +3,7 @@ class City
   include Mongoid::Timestamps
   include Mongoid::Spacial::Document
   include Mongoid::Slug
+  include Mongoid::FullTextSearch
 
   belongs_to :state
   has_many :ads
@@ -15,6 +16,7 @@ class City
   field :source, type: Array, spacial: true
 
   spacial_index :source
+  fulltext_search_in
 
   def geolocation
     geo = Geocoder.search(to_s).first

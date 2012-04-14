@@ -1,2 +1,9 @@
-h1 Good :D
-h2= @category
+= simple_form_for(@ad, :html => {:class => 'form-vertical' }) do |f|
+  .row
+    .span3
+      = f.input :title
+    .span3
+      = f.input :city, :input_html => { :class => 'typeahead city-typeahead', :value => @city.to_s }
+  = f.input :description, :as => :text, 
+      :input_html => { :rows => 10, :style => 'width: 500px' }
+  = f.submit "post ad", :class => 'btn btn-primary'

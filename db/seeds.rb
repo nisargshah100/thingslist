@@ -64,3 +64,7 @@ City.collection.insert(cities)
 
 puts "Cities Saved (#{City.count})"
 system "rake db:mongoid:create_indexes"
+
+puts "Updating Indexes"
+City.update_ngram_index
+puts "DONE!"

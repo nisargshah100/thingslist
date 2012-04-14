@@ -17,7 +17,10 @@
 //= require typeahead
 //= require_tree .
 
+var city_typeahead_selected_id = null;
+
 $(document).ready(function() {
+  
   $('.categories').masonry({
      columnWidth: 50
   });
@@ -33,6 +36,25 @@ $(document).ready(function() {
 
       onselect: function (obj) {
         $("#template_content").load('/ads/new?cid='+obj.id);
+      }
+    });
+  });
+
+  $('.city-typeahead').live('focus', function() {
+    var _this = $(this);
+
+    $(this).typeahead({
+      source: function(typeahead, query) {
+        if(query.length >= 1) {
+          return $.get('/api/cities/search.json', { city: query }, function(data) {
+            d = $.map(data, function(n) { return { value: n.name + ', ' + n.state.toLowerCase(), id: n.id } });
+            return typeahead.process(d);
+          });
+        }
+      },
+
+      onselect: function(obj) {
+        city_typeahead_selected_id = obj.id;
       }
     });
   });
