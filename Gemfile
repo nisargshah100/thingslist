@@ -31,6 +31,7 @@ gem 'puma'
 gem 'bson_ext'
 gem 'devise'
 gem 'slim'
+gem 'devise'
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
 
 # Geo
