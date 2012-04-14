@@ -14,4 +14,5 @@ class AdsController < ApplicationController
     render :json => Ad.new(params[:ad])
   end
   
+  
 end

@@ -20,7 +20,7 @@
 var city_typeahead_selected_id = null;
 
 $(document).ready(function() {
-  
+
   $('.categories').masonry({
      columnWidth: 50
   });
