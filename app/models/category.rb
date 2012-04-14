@@ -23,10 +23,12 @@ class Category
   end
 
   def serialize
-    {
+    s = {
       :id => id,
       :name => name
     }
+    s[:parent] = parent.name if parent
+    s
   end
 
 end

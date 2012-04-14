@@ -14,10 +14,26 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require masonry
+//= require typeahead
 //= require_tree .
 
 $(document).ready(function() {
   $('.categories').masonry({
      columnWidth: 50
   });
+
+  $.get('/api/categories/children.json', function(data) {
+    data = $.map(data, function(n) { return n.name + " [" + n.parent + "]" });
+
+    $('.typeahead').typeahead({
+      source: function (typeahead, query) {
+        return data;
+      },
+
+      onselect: function (obj) {
+        alert('Selected '+obj)
+      }
+    });
+  });
+
 });

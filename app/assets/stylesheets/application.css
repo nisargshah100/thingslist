@@ -9,16 +9,20 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap
- *= require responsive
  *= require_self
  *= require_tree .
 */
 
-@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,700|Karla);
 
 #main_content {
   margin-top: 60px;
   font-family: 'Nunito', sans-serif;
+}
+
+input[type='text'], input[type='password'], textarea {
+  font-family: 'Karla', sans-serif;
+  font-size: 14px;
 }
 
 .categories th {

@@ -1,16 +1,16 @@
 class Api::CategoriesController < Api::ApiController
   def index
-    categories = Category.only(:name)
+    categories = Category
     respond_with(categories)
   end
 
   def parents
-    categories = Category.only(:name).parents()
+    categories = Category.parents()
     respond_with(categories)
   end
 
   def children
-    categories = Category.only(:name).children()
+    categories = Category.children()
     respond_with(categories)
   end
 end
