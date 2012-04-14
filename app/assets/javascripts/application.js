@@ -23,7 +23,8 @@ $(document).ready(function() {
   });
 
   $.get('/api/categories/children.json', function(data) {
-    data = $.map(data, function(n) { return n.name + " [" + n.parent + "]" });
+    loaded_data = data;
+    data = $.map(data, function(n) { return {value: n.name + " [" + n.parent + "]", id: n.id}  });
 
     $('.typeahead').typeahead({
       source: function (typeahead, query) {
@@ -31,7 +32,7 @@ $(document).ready(function() {
       },
 
       onselect: function (obj) {
-        alert('Selected '+obj)
+        $("#template_content").load('/ads/new?cid='+obj.id);
       }
     });
   });

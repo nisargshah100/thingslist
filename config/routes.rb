@@ -3,7 +3,7 @@ Thingslist::Application.routes.draw do
   devise_for :users
   
   resources :categories
-  resources :city, :ad
+  resources :city, :ads
   
   # Api Paths
 

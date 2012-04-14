@@ -8,6 +8,7 @@ class Category
   has_many :ads
 
   field :name
+  field :template, :default => 'default'
   slug :to_s
 
   def self.parents()
