@@ -27,7 +27,6 @@ gem 'mongoid_fulltext'
 
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'puma'
 gem 'bson_ext'
 gem 'devise'
 gem 'slim'

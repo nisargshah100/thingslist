@@ -4,6 +4,7 @@ class Ad
   
   belongs_to :city
   belongs_to :category
+  belongs_to :user
   
   field :title
   field :description

@@ -1,0 +1,15 @@
+.row
+  .span6
+    h2 = @category
+  .span3
+    input.search-query type='text' placeholder='Search'
+
+br
+
+.row
+  .span9
+    - @ads.each do |date, ads|
+      .ad_date = date.strftime("%b %d, %Y (%a)")
+      br
+      - ads.each do |ad|
+        = render 'ads/ad', :ad => ad

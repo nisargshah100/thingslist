@@ -1,0 +1,3 @@
+div.ad
+  = link_to truncate(ad.title, :length => 80), ad_path(ad)
+  |  - (#{ad.city})

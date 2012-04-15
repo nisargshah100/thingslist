@@ -1,4 +1,5 @@
 = simple_form_for(@ad, :html => {:class => 'form-vertical' }) do |f|
+  = f.input :category, :as => 'hidden', :input_html => { :value => @category.id }
   #error.alert.alert-error.hide
   .row
     .span3
