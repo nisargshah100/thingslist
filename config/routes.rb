@@ -1,5 +1,4 @@
 Thingslist::Application.routes.draw do
-
   devise_for :users
   
   resources :categories
@@ -20,6 +19,9 @@ Thingslist::Application.routes.draw do
         get 'nearby'
         get 'search'
       end
+    end
+
+    resources :ads do
     end
   end
 

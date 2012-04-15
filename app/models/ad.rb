@@ -8,6 +8,10 @@ class Ad
   field :title
   field :description
 
+  validates :title, :presence => true
+  validates :description, :presence => true
+  validates :city, :presence => true
+
   def to_s
     title
   end

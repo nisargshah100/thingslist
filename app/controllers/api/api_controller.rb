@@ -15,7 +15,19 @@ class Api::ApiController < ActionController::Base
   end
 
   def respond_with(items)
-    super(items.collect { |i| i.serialize() })
+    if items.respond_to? :each
+      value = items.collect do |i|
+        if i.respond_to? :serialize
+          i.serialize()
+        else
+          i
+        end
+      end
+    else
+      value = items
+    end
+
+    super(value)
   end
 
 end

@@ -17,19 +17,39 @@
 //= require typeahead
 //= require_tree .
 
+// Serializes form to json
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
 var city_typeahead_selected_id = null;
 
 $(document).ready(function() {
 
+  // Organizes categories
   $('.categories').masonry({
      columnWidth: 50
   });
 
+  // submits request for categories
   $.get('/api/categories/children.json', function(data) {
     loaded_data = data;
     data = $.map(data, function(n) { return {value: n.name + " [" + n.parent + "]", id: n.id}  });
 
-    $('.typeahead').typeahead({
+    $('.categories-typeahead').typeahead({
       source: function (typeahead, query) {
         return data;
       },
@@ -40,6 +60,7 @@ $(document).ready(function() {
     });
   });
 
+  // submits requests for cities
   $('.city-typeahead').live('focus', function() {
     var _this = $(this);
 
@@ -59,4 +80,20 @@ $(document).ready(function() {
     });
   });
 
+  // submits the new ad form
+  $('#new_ad').live('submit', function(e) {
+    e.preventDefault();
+
+    var values = $(this).serializeObject();
+    values["ad[city]"] = city_typeahead_selected_id;
+
+    $.get('/api/ads/new.json', values, function(data) {
+      if(data == true) {
+        location.href = '/';
+      }
+      else {
+        $("#error").html(data.join('<br />')).show('slow');
+      }
+    });
+  });
 });
