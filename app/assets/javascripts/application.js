@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require masonry
 //= require typeahead
+//= require tinymce-jquery
 //= require_tree .
 
 // Serializes form to json

@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
 
   def new
     cid = params[:cid] || ""
@@ -11,5 +11,8 @@ class AdsController < ApplicationController
     end
   end
 
+  def show
+    @ad = Ad.find(params[:id])
+  end
   
 end

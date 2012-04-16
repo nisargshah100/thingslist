@@ -41,4 +41,8 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+
+  def to_s
+    email.split("@").first
+  end
 end
