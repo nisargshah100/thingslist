@@ -1,6 +1,6 @@
 class Api::AdsController < Api::ApiController
 
-  def new
+  def create
     ad = Ad.new(params[:ad])
     ad.user = current_user
     if ad.save()

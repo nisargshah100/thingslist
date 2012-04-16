@@ -27,7 +27,10 @@ class Api::ApiController < ActionController::Base
       value = items
     end
 
-    super(value)
+    respond_to do |f|
+      f.xml { render :xml => value }
+      f.json { render :json => value }
+    end
   end
 
 end

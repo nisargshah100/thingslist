@@ -155,6 +155,8 @@ GEM
       rspec (~> 2.9.0)
     ruby_gntp (0.3.4)
     rubyzip (0.9.7)
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
     sass (3.1.15)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -221,6 +223,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   ruby_gntp
+  sanitize
   sass-rails (~> 3.2.3)
   simple_form
   slim

@@ -25,6 +25,7 @@ gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid_fulltext'
 
+gem 'sanitize'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'tinymce-rails'

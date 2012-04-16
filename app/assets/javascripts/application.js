@@ -88,7 +88,7 @@ $(document).ready(function() {
     var values = $(this).serializeObject();
     values["ad[city]"] = city_typeahead_selected_id;
 
-    $.get('/api/ads/new.json', values, function(data) {
+    $.post('/api/ads.json', values, function(data) {
       if(data == true) {
         location.href = '/';
       }

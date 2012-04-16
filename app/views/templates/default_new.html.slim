@@ -8,8 +8,11 @@
       = f.input :city, :input_html => { :class => 'typeahead city-typeahead', :value => @city.to_s }
   = f.input :description, :as => :text, 
       :input_html => { :rows => 15, :style => 'width: 500px', :class => 'tinymce' }
-  = tinymce :theme => "simple"
+  = tinymce
   = f.submit "post ad", :class => 'btn btn-primary'
 
 javascript:
   city_typeahead_selected_id = "#{@city.id}";
+
+  tinyMCE.execCommand("fontName", false, "Verdana");
+  tinyMCE.execCommand("fontSize", false, "14px");
