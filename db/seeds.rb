@@ -47,10 +47,14 @@ csv.each do |row|
   state = states[row[:abbr]]
 
   if name and state
+    c = City.new(:name => name, :state => state, :source => [row[:lng].to_f, row[:lat].to_f])
+    c.build_slug
+    
     cities << {
       :name => name, 
       :state_id => state, 
-      :source => [row[:lng].to_f, row[:lat].to_f]
+      :source => [row[:lng].to_f, row[:lat].to_f],
+      :slug => c.slug
     }
   end
 end
@@ -64,6 +68,7 @@ City.collection.insert(cities)
 
 puts "Cities Saved (#{City.count})"
 system "rake db:mongoid:create_indexes"
+puts "DONE!"
 
 #puts "Updating Indexes"
 #City.update_ngram_index
