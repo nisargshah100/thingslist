@@ -4,8 +4,8 @@ class CityController < ApplicationController
   end
 
   def show
-    c = City.find_by_slug(params[:id]) || raise_404
-    cookies[:city] = c.id
+    @city = City.find_by_slug(params[:id]) || raise_404
+    cache_city(@city)
 
     @categories = Category.parents()
   end

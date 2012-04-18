@@ -1,3 +1,7 @@
 div.ad
   = link_to truncate(ad.title, :length => 80), ad_path(ad)
-  |  - (#{ad.city})
+  |  - (#{ad.city}) 
+  div 
+    | Posted by #{ad.user} about #{time_ago_in_words(ad.created_at)} ago
+    span.divider |
+    span.label.label-success-light #{ad.distance(@city)} miles away

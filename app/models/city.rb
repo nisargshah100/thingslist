@@ -34,6 +34,10 @@ class City
       { :point => self.location, :max => distance, :unit => unit }).offset(1)
   end
 
+  def find_distance(city, unit=:mi)
+    self.distance_from(:source, city.location, { :unit => unit })
+  end
+
   def to_s
     "#{name}, #{state.abbr if state}".downcase
   end

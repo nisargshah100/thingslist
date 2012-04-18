@@ -49,3 +49,27 @@ input[type='text'], input[type='password'], textarea {
   background-color: #EAF1FB;
   padding: 10px;
 }
+
+.light {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.label-success-light {
+  color: #36F;
+  background-color: #eef;
+  text-shadow: none;
+  opacity: .7;
+
+}
+
+.label-success-light:hover {
+  color: #36F;
+  opacity: 1;
+}
+
+.divider {
+  margin-left: 8px;
+  margin-right: 8px;
+  color: #999;
+}

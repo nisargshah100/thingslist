@@ -16,4 +16,9 @@ class Ad
   def to_s
     title
   end
+
+  def distance(city, unit = :mi)
+    self.city.find_distance(city, unit).round(2)
+  end
+
 end
