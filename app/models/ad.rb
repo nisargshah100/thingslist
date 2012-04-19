@@ -24,4 +24,11 @@ class Ad
     self.city.find_distance(city, unit).round(2)
   end
 
+  def self.within(city, dist, unit = :mi)
+    cities = city.find_closest(dist, unit).only(:_id).limit(100).map(&:_id)
+    cities << city._id
+
+    Ad.where(:city_id.in => cities)
+  end
+
 end
