@@ -2,7 +2,8 @@
   .span6
     h2 = @category
   .span3
-    input.search-query type='text' placeholder='Search'
+    form method='get'
+      input.search-query type='text' name='q' placeholder='Search' value='#{params[:q]}'
 
 br
 

@@ -1,6 +1,7 @@
 class Ad
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::FullTextSearch
   
   belongs_to :city
   belongs_to :category
@@ -12,6 +13,8 @@ class Ad
   validates :title, :presence => true
   validates :description, :presence => true
   validates :city, :presence => true
+
+  fulltext_search_in :title, :description
 
   def to_s
     title
