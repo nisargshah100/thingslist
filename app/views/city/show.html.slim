@@ -1,6 +1,7 @@
 .row
   .span3
-    input.search-query type='text' placeholder='Search'
+    form method='get' action='#{search_city_index_path}'
+      input.search-query name='q' type='text' placeholder='Search'
   .span6.center
     h2= @city
   .span3.pull-right

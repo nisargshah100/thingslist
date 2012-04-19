@@ -9,4 +9,10 @@ class CityController < ApplicationController
 
     @categories = Category.parents()
   end
+
+  def search
+    @query = params[:q]
+    @ads = Ad.fulltext_search(@query).group_by { |x| x.created_at.to_date }
+  end
+
 end

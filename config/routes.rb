@@ -2,8 +2,14 @@ Thingslist::Application.routes.draw do
   devise_for :users
   
   resources :categories
-  resources :city, :ads
+  resources :ads
   
+  resources :city do
+    collection do
+      get 'search'
+    end
+  end
+
   # Api Paths
 
   namespace :api do
