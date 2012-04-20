@@ -43,6 +43,7 @@ class User
   # field :authentication_token, :type => String
 
   field :facebook_data
+  field :facebook_token
 
   def to_s
     name
@@ -56,6 +57,10 @@ class User
     facebook_data["name"] || ""
   end
 
+  def facebook
+    @graph ||= Koala::Facebook::API.new(self.facebook_token)
+  end
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = self.where(:email => data.email).first
@@ -67,6 +72,7 @@ class User
     end
 
     user.facebook_data = data
+    user.facebook_token = access_token["credentials"]["token"]
     user.save
     user
   end

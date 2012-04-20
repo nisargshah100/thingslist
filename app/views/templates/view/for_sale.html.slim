@@ -1,0 +1,10 @@
+= render :layout => 'templates/view/view' do 
+  br
+  
+  table.table
+    tr
+      td.span2 Price
+      td == "$#{@ad.price}"
+    tr
+      td.span2 Description
+      td == Sanitize.clean(@ad.description, Sanitize::Config::BASIC)

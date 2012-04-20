@@ -1,0 +1,3 @@
+= render :layout => 'templates/view/view' do 
+  hr
+  p == Sanitize.clean(@ad.description, Sanitize::Config::BASIC)

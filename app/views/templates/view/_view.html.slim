@@ -1,4 +1,4 @@
 h3 = @ad.title
 p posted #{time_ago_in_words(@ad.created_at)} ago by #{@ad.user}
-hr
-p == Sanitize.clean(@ad.description, Sanitize::Config::BASIC)
+
+= yield if block_given?

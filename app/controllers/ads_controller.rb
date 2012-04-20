@@ -7,12 +7,13 @@ class AdsController < ApplicationController
 
     if @category
       @ad = Ad.new
-      render "templates/#{@category.template}_new", :layout => false
+      render "templates/new/#{@category.template}", :layout => false
     end
   end
 
   def show
     @ad = Ad.find(params[:id])
+    render "templates/view/#{@ad.category.template}"
   end
   
 end
