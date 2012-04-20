@@ -73,3 +73,7 @@ input[type='text'], input[type='password'], textarea {
   margin-right: 8px;
   color: #999;
 }
+
+.brand {
+  font-family: 'Karla', sans-serif;
+}
