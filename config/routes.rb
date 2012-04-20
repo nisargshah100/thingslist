@@ -9,6 +9,8 @@ Thingslist::Application.routes.draw do
       get 'search'
     end
   end
+  
+  get 'redirect' => 'home#redirect'
 
   # Api Paths
 

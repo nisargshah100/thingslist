@@ -1,0 +1,6 @@
+h3 You are about to visit: #{link_to @url, @url}
+br
+.well
+  = link_to 'Go to Website', @url, :class => 'btn btn-primary'
+  = link_to 'Back', '#', :class => 'btn', :style => 'margin-left: 10px', 
+      :onclick => 'history.go(-1);return false;'

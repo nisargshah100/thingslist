@@ -18,6 +18,8 @@
 //= require tinymce-jquery
 //= require_tree .
 
+var base_url = "http://localhost:3000"
+
 // Serializes form to json
 $.fn.serializeObject = function()
 {
@@ -39,6 +41,18 @@ $.fn.serializeObject = function()
 var city_typeahead_selected_id = null;
 
 $(document).ready(function() {
+
+  $("a[href^='http:']:not([href*='" + window.location.host + "'])").each(function() {               
+    $(this).live('click', function(e) {
+      e.preventDefault();
+      if (location.href.indexOf(base_url+"/redirect/") == 0) {
+        location.href = $(this).attr('href');
+      }
+      else {
+        location.href = '/redirect/?url='+$(this).attr('href');
+      }
+    });
+  });
 
   // Organizes categories
   $('.categories').masonry({

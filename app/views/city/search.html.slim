@@ -1,12 +1,11 @@
 .row
-  .span12
-    .span3
-      form method='get'
-        input.search-query name='q' type='text' placeholder='Search' value='#{params[:q]}'
-    .span6.center
-      h2= @city
-    .span2.pull-right
-      a.btn.btn-info href="#{new_ad_path}" = t(:post_ad)
+  .span3
+    form method='get'
+      input.search-query name='q' type='text' placeholder='Search' value='#{params[:q]}'
+  .span6.center
+    h2= @city
+  .span2.pull-right
+    a.btn.btn-info href="#{new_ad_path}" = t(:post_ad)
 
 hr
 .span9
