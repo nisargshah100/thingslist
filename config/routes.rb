@@ -1,5 +1,6 @@
 Thingslist::Application.routes.draw do
-  devise_for :users
+  get 'users/sign_in' => redirect('/users/auth/facebook')
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   resources :categories
   resources :ads

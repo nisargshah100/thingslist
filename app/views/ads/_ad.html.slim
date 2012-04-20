@@ -2,7 +2,7 @@ div.ad
   = link_to truncate(ad.title, :length => 80), ad_path(ad)
   |  - (#{ad.city}) 
   div 
-    | Posted #{time_ago_in_words(ad.created_at)} ago by #{ad.user}
+    | Posted #{time_ago_in_words(ad.created_at)} ago by #{ link_to(ad.user, ad.user.profile_url) if ad.user }
 
     - if ad.distance(@city) > 0
       span.divider |

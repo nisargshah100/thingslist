@@ -77,3 +77,9 @@ input[type='text'], input[type='password'], textarea {
 .brand {
   font-family: 'Karla', sans-serif;
 }
+
+.facebook_button {
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}

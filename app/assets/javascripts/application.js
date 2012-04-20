@@ -54,6 +54,10 @@ $(document).ready(function() {
     });
   });
 
+  $(".facebook_button").click(function() {
+    location.href = '/users/auth/facebook';
+  });
+
   // Organizes categories
   $('.categories').masonry({
      columnWidth: 50

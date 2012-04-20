@@ -35,6 +35,7 @@ gem 'devise'
 gem 'slim'
 gem 'devise'
 gem 'anjlab-bootstrap-rails', '>= 2.0', :require => 'bootstrap-rails'
+gem "omniauth-facebook"
 
 # Geo
 gem 'mongoid_spacial'
