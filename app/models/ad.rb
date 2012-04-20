@@ -9,12 +9,21 @@ class Ad
   
   field :title
   field :description
+  field :price
 
   validates :title, :presence => true
   validates :description, :presence => true
   validates :city, :presence => true
 
   fulltext_search_in :title, :description
+
+  def price
+    Money.new(read_attribute(:price) || 0)
+  end
+
+  def price=(price)
+    write_attribute(:price, Money.parse(price).cents)
+  end
 
   def to_s
     title

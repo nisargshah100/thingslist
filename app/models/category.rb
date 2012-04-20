@@ -11,12 +11,18 @@ class Category
   field :template, :default => 'default'
   slug :to_s
 
-  def self.parents()
+  def self.parents
     Category.where(:parent_id => nil)
   end
 
-  def self.children()
+  def self.children
     Category.all() - self.parents()
+  end
+
+  def template
+    temp = read_attribute(:template)
+    temp = self.parent.template if self.parent and temp == 'default'
+    temp
   end
 
   def to_s

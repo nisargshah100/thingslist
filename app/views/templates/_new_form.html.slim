@@ -1,0 +1,16 @@
+javascript:
+  city_typeahead_selected_id = "#{@city.id}";
+
+= simple_form_for(@ad, :html => {:class => 'form-vertical' }) do |f|
+  = f.input :category, :as => 'hidden', :input_html => { :value => @category.id }
+  #error.alert.alert-error.hide
+  .row
+    .span3
+      = f.input :title
+    .span3
+      = f.input :city, :input_html => { :class => 'typeahead city-typeahead', :value => @city.to_s }
+  = f.input :description, :as => :text, 
+      :input_html => { :rows => 15, :style => 'width: 500px', :class => 'tinymce' }
+  = tinymce
+  = yield(f) if block_given?
+  = f.submit "post ad", :class => 'btn btn-primary'
