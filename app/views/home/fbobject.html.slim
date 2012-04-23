@@ -15,4 +15,6 @@ html
       p = "http://emarsto.com/#{@url}"
 
   javascript:
-    alert(document.referrer);
+    if(document.referrer == "http://www.facebook.com/") {
+      location.href = "http://emarsto.com/#{raw(@url)}";
+    }
