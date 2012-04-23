@@ -34,5 +34,6 @@ Thingslist::Application.routes.draw do
     end
   end
 
+  get 'fbobject' => 'home#fbobject'
   root :to => 'home#index'
 end

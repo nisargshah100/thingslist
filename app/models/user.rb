@@ -44,6 +44,7 @@ class User
 
   field :facebook_data
   field :facebook_token
+  field :facebook_valid, :default => false
 
   def to_s
     name
@@ -61,6 +62,20 @@ class User
     @graph ||= Koala::Facebook::API.new(self.facebook_token)
   end
 
+  def validate_facebook!
+    # Check if they have alteast 5 friends
+    # and 5 posts
+
+    begin
+      if friends_count > 5 and posts_count > 5
+        self.facebook_valid = true
+        self.save()
+      end
+    rescue Koala::Facebook::APIError => e
+      puts "#{self.email} = #{e}"
+    end
+  end
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = self.where(:email => data.email).first
@@ -74,6 +89,11 @@ class User
     user.facebook_data = data
     user.facebook_token = access_token["credentials"]["token"]
     user.save
+
+    if not user.facebook_valid
+      user.validate_facebook!
+    end
+
     user
   end
 
@@ -84,4 +104,15 @@ class User
       end
     end
   end
+
+  private
+
+  def friends_count
+    facebook.get_connection("me", "friends").count
+  end
+
+  def posts_count
+    facebook.get_connection("me", "posts").count
+  end
+
 end

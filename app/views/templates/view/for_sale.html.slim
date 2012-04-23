@@ -1,10 +1,13 @@
 = render :layout => 'templates/view/view' do 
   br
-  
-  table.table
-    tr
-      td.span2 Price
-      td == "$#{@ad.price}"
-    tr
-      td.span2 Description
-      td == Sanitize.clean(@ad.description, Sanitize::Config::BASIC)
+
+  div.pull-right.span3
+    table.table.table-bordered
+      tr
+        td.span1 Price
+        td == price_to_text(@ad.price)
+      tr
+        td.span1 Quality
+        td == quality_to_text(@ad.quality)
+
+  == Sanitize.clean(@ad.description, Sanitize::Config::BASIC)

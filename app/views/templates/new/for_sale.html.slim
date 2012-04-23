@@ -3,3 +3,6 @@
   .row
     .span2
       = f.input :price, :input_html => { :class => 'span2' }
+    .span2
+      = f.input :quality, :collection => Ad.QUALITY_OPTIONS, 
+          :input_html => { :class => 'span2' }

@@ -1,4 +1,4 @@
 h3 = @ad.title
-p posted #{time_ago_in_words(@ad.created_at)} ago by #{@ad.user}
+p posted #{time_ago_in_words(@ad.created_at)} ago by #{link_to @ad.user, @ad.user.profile_url}
 
 = yield if block_given?
