@@ -1,11 +1,11 @@
 html
   head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# emarsto: http://ogp.me/ns/fb/emarsto#"
     title = @title
-    meta content="#{@title}" property="og:title"
-    meta content="#{@img}" property="og:image"
-    meta content="#{@description}" property="og:description"
+    meta content="#{raw(@title)}" property="og:title"
+    meta content="#{raw(@img)}" property="og:image"
+    meta content="#{raw(@description)}" property="og:description"
     meta content="104298906372645" property="fb:app_id"
-    meta content="http://emarsto.com/#{@url}" property="og:url"
+    meta content="http://emarsto.com/#{raw(@url)}" property="og:url"
     meta content="emarsto:ad" property="og:type"
   body
     #wrapper
