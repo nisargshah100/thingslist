@@ -102,6 +102,7 @@ $(document).ready(function() {
   // submits the new ad form
   $('#new_ad').live('submit', function(e) {
     e.preventDefault();
+    $(".post-ad").attr('disabled', true);
 
     var values = $(this).serializeObject();
     values["ad[city]"] = city_typeahead_selected_id;
@@ -112,6 +113,7 @@ $(document).ready(function() {
       }
       else {
         $("#error").html(data.join('<br />')).show('slow');
+        $(".post-ad").attr('disabled', false);
       }
     });
   });
