@@ -1,12 +1,15 @@
 html
   head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# emarsto: http://ogp.me/ns/fb/emarsto#"
-    title OG Sample Object - Sample Ad
-    meta content="Sample Ad" property="og:title"
-    meta content="https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png" property="og:image"
-    meta content="Testing this out" property="og:description"
+    title = @title
+    meta content="#{@title}" property="og:title"
+    meta content="#{@img}" property="og:image"
+    meta content="#{@description}" property="og:description"
     meta content="104298906372645" property="fb:app_id"
-    meta content="http://emarsto.com/fbobject" property="og:url"
+    meta content="http://emarsto.com/#{@url}" property="og:url"
     meta content="emarsto:ad" property="og:type"
   body
     #wrapper
-      h1 Good :D
+      h1 = @title
+      p = @description
+      p = @img
+      p = "http://emarsto.com/#{@url}"
