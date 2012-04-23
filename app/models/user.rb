@@ -76,6 +76,11 @@ class User
     end
   end
 
+  def post_ad(ad)
+    self.facebook.put_connections("me", "emarsto:post", 
+      :ad => "http://emarsto.com/fbobject?key=a24912491jd12nf313rhkj3hk135k1j381h2d12k&title=#{ad.title}&description=#{Sanitize.clean(ad.description)}&url=ads/#{ad.id}&img=http://emarsto.com/assets/post.png")
+  end
+
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.extra.raw_info
     if user = self.where(:email => data.email).first
