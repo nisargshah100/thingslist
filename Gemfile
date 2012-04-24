@@ -21,7 +21,7 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-gem 'puma'
+gem 'unicorn'
 
 gem 'mongoid'
 gem 'mongoid_slug'
