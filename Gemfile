@@ -21,6 +21,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+gem 'puma'
+
 gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid_fulltext'
