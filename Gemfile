@@ -22,6 +22,7 @@ group :development, :test do
 end
 
 gem 'unicorn'
+gem 'puma'
 
 gem 'mongoid'
 gem 'mongoid_slug'
