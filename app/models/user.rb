@@ -59,7 +59,7 @@ class User
   end
 
   def facebook
-    @graph ||= Koala::Facebook::API.new(self.facebook_token)
+    @graph ||= Koala::Facebook::GraphAPI.new(self.facebook_token)
   end
 
   def validate_facebook!
